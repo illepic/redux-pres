@@ -44,21 +44,26 @@
       }
 
       render()
+
+      // All state changes trigger re-render!
       store.subscribe(render)
 
       document.getElementById('increment')
-        .addEventListener('click', function () {
+        .addEventListener('click', function () { 
+          // Dispatch event!
           store.dispatch({ type: 'INCREMENT' })
         })
 
       document.getElementById('decrement')
         .addEventListener('click', function () {
+          // Dispatch event!
           store.dispatch({ type: 'DECREMENT' })
         })
 
       document.getElementById('incrementIfOdd')
         .addEventListener('click', function () {
           if (store.getState() % 2 !== 0) {
+            // Dispatch event!
             store.dispatch({ type: 'INCREMENT' })
           }
         })
@@ -66,6 +71,7 @@
       document.getElementById('incrementAsync')
         .addEventListener('click', function () {
           setTimeout(function () {
+            // Dispatch event!
             store.dispatch({ type: 'INCREMENT' })
           }, 1000)
         })
